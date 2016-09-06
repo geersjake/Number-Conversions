@@ -1,3 +1,4 @@
+import java.math.BigInteger;
 import java.util.ArrayList;
 
 /**
@@ -8,17 +9,20 @@ public class NumberBase {
 
 
     public static String convert (String input, int base_in, int base_out){
-        ArrayList<Integer> nums = convertIntoArray(input);
-        int input_as_integer = toInteger(nums);
-        String ans = "";
-        int sum = -1;
+        ArrayList<BigInteger> nums = convertIntoArray(input);
+        //BigInteger input_as_integer = toInteger(nums);
+        String ans = "miss";
+        BigInteger sum;
         if (base_out == 10){
-            sum = toBaseTen(nums,base_in);
+            sum = toBaseTen(nums,BigInteger.valueOf(base_in));
             ans = String.valueOf(sum);
         }
-        else{
-            ArrayList<Integer> temp = new ArrayList<>();
-            sum = toBaseTwo(input_as_integer, base_out, temp);
+        if (base_in != 10){
+            BigInteger input_in_base_ten = toBaseTen(nums, BigInteger.valueOf(base_in));
+
+
+            ArrayList<BigInteger> temp = new ArrayList<>();
+            sum = toBaseTwo(input_in_base_ten, BigInteger.valueOf(base_out), temp);
             ans = String.valueOf(sum);
         }
 
@@ -26,49 +30,57 @@ public class NumberBase {
         return ans;
     }
 
-    public static int toBaseTwo (int input, int base_out,ArrayList<Integer> remainders ){
-        //ArrayList<Integer> remainders = new ArrayList<>();
-        remainders.add(input%base_out);
-        if (input <=0){
+    public static BigInteger toBaseTwo (BigInteger input, BigInteger base_out,ArrayList<BigInteger> remainders ){
+        remainders.add(input.mod(base_out));
+        if (input.compareTo(BigInteger.ZERO) == 0){
             System.out.println(remainders);
             return toInteger(remainders);
         }
         else {
-            return toBaseTwo(input/base_out, base_out, remainders);
+            return toBaseTwo(input.divide(base_out), base_out, remainders);
         }
 
 
 
     }
 
-    public static int toInteger (ArrayList<Integer> nums){
-        int sum = 0;
-        int num_place = 1;
+    public static BigInteger toInteger (ArrayList<BigInteger> nums){
+        BigInteger sum = BigInteger.valueOf(0);
+        BigInteger num_place = BigInteger.valueOf(1);
 
         for (int i = 0; i < nums.size(); i++) {
-            sum += nums.get(i)*num_place;
-            num_place*=10;
+            if (nums.get(i).compareTo(BigInteger.ZERO) == 0){
+                num_place = num_place.multiply(BigInteger.valueOf(10));
+
+            }
+            else {
+                sum = sum.add(nums.get(i).multiply(num_place));
+                num_place = num_place.multiply(BigInteger.valueOf(10));
+            }
 
         }
         return sum;
     }
 
-    public static int toBaseTen (ArrayList<Integer> nums, int base_in){
-        int sum = 0;
+    public static BigInteger toBaseTen (ArrayList<BigInteger> nums, BigInteger base_in){
+        BigInteger sum = BigInteger.valueOf(0);
 
         for (int i = 0; i < nums.size(); i++) {
-            sum += nums.get(i) * Math.pow(base_in, i);
+            sum = sum.add(nums.get(i).multiply(base_in.pow(i)));
+
+
         }
 
         return sum;
     }
 
 
-    public static ArrayList<Integer> convertIntoArray (String input){
-        ArrayList<Integer> nums = new ArrayList<>();
+    public static ArrayList<BigInteger> convertIntoArray (String input){
+        ArrayList<BigInteger> nums = new ArrayList<>();
         char [] charDigits = input.toCharArray();
         for (int i = charDigits.length-1; i >= 0; i--) {
-            nums.add(Character.getNumericValue(charDigits[i]));
+            nums.add(BigInteger.valueOf(Character.getNumericValue(charDigits[i])));
+
         }
         return nums;
     }
@@ -76,7 +88,7 @@ public class NumberBase {
 
 
     public static void main(String[] args) {
-        System.out.println(convert("1394", 10 , 2));
+        System.out.println(convert("10100101", 2 , 16));
     }
 
 }
