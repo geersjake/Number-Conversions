@@ -10,31 +10,38 @@ public class NumberBase {
 
     public static String convert (String input, int base_in, int base_out){
         ArrayList<BigInteger> nums = convertIntoArray(input);
-        //BigInteger input_as_integer = toInteger(nums);
+        BigInteger input_as_integer = toInteger(nums);
         String ans = "miss";
         BigInteger sum;
         if (base_out == 10){
             sum = toBaseTen(nums,BigInteger.valueOf(base_in));
-            ans = String.valueOf(sum);
+            ans = sum + "";
+            ans.trim();
+
         }
-        if (base_in != 10){
+        else if (base_in != 10){
             BigInteger input_in_base_ten = toBaseTen(nums, BigInteger.valueOf(base_in));
 
-
             ArrayList<BigInteger> temp = new ArrayList<>();
-            sum = toBaseTwo(input_in_base_ten, BigInteger.valueOf(base_out), temp);
-            ans = String.valueOf(sum);
+            ans = toBaseTwo(input_in_base_ten, BigInteger.valueOf(base_out), temp);
+
+        } else {
+            ArrayList<BigInteger> temp = new ArrayList<>();
+            ans = toBaseTwo(input_as_integer, BigInteger.valueOf(base_out), temp);
         }
 
+        if (ans.startsWith("0")){
+            ans = ans.replaceFirst("^0+(?!$)", "");
+        }
 
         return ans;
     }
 
-    public static BigInteger toBaseTwo (BigInteger input, BigInteger base_out,ArrayList<BigInteger> remainders ){
+    public static String toBaseTwo (BigInteger input, BigInteger base_out,ArrayList<BigInteger> remainders ){
         remainders.add(input.mod(base_out));
         if (input.compareTo(BigInteger.ZERO) == 0){
             System.out.println(remainders);
-            return toInteger(remainders);
+            return toLetters(remainders);
         }
         else {
             return toBaseTwo(input.divide(base_out), base_out, remainders);
@@ -60,6 +67,22 @@ public class NumberBase {
 
         }
         return sum;
+    }
+
+    public static String toLetters (ArrayList<BigInteger> nums){
+        String ans = "";
+
+        String[] letters = {
+            "0", "1", "2", "3", "4", "5", "6", "7", "8", "9", "a", "b", "c", "d", "e", "f", "g", "h",
+                "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z"
+        };
+
+        for (int i = 0; i < nums.size(); i++) {
+
+            ans = letters[nums.get(i).intValue()] + ans;
+
+        }
+        return ans;
     }
 
     public static BigInteger toBaseTen (ArrayList<BigInteger> nums, BigInteger base_in){
@@ -88,7 +111,7 @@ public class NumberBase {
 
 
     public static void main(String[] args) {
-        System.out.println(convert("10100101", 2 , 16));
+        System.out.println(convert("123", 10, 36));
     }
 
 }
