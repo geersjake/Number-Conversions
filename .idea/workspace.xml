@@ -2,6 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="5fb4d102-6e86-4311-9e85-81551a474fa6" name="Default" comment="">
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/NumberBaseTest2.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/CIS 251/NumberBase.class" afterPath="$PROJECT_DIR$/out/production/CIS 251/NumberBase.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/NumberBase.java" afterPath="$PROJECT_DIR$/src/NumberBase.java" />
     </list>
@@ -32,16 +34,26 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="375">
-      <file leaf-file-name="NumberBase.java" pinned="false" current-in-tab="true">
+      <file leaf-file-name="NumberBase.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/NumberBase.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="274">
-              <caret line="189" column="9" selection-start-line="189" selection-start-column="9" selection-end-line="189" selection-end-column="9" />
+            <state relative-caret-position="432">
+              <caret line="206" column="45" selection-start-line="206" selection-start-column="45" selection-end-line="206" selection-end-column="45" />
               <folding>
                 <element signature="imports" expanded="true" />
-                <element signature="e#8912#8913#0" expanded="true" />
-                <element signature="e#8968#8969#0" expanded="true" />
+                <element signature="e#9111#9112#0" expanded="true" />
+                <element signature="e#9166#9167#0" expanded="true" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="NumberBaseTest2.java" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/NumberBaseTest2.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="256">
+              <caret line="72" column="13" selection-start-line="72" selection-start-column="13" selection-end-line="72" selection-end-column="13" />
+              <folding />
             </state>
           </provider>
         </entry>
@@ -49,7 +61,7 @@
       <file leaf-file-name="Integer.java" pinned="false" current-in-tab="false">
         <entry file="jar://C:/Program Files/Java/jdk1.8.0_66/src.zip!/java/lang/Integer.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-547">
+            <state relative-caret-position="-242">
               <caret line="531" column="22" selection-start-line="531" selection-start-column="22" selection-end-line="531" selection-end-column="22" />
               <folding />
             </state>
@@ -59,10 +71,11 @@
       <file leaf-file-name="NumberBaseTest.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/NumberBaseTest.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="110">
+            <state relative-caret-position="352">
               <caret line="17" column="0" selection-start-line="17" selection-start-column="0" selection-end-line="17" selection-end-column="0" />
               <folding>
-                <element signature="imports" expanded="true" />
+                <element signature="e#1741#1742#0" expanded="false" />
+                <element signature="e#1789#1790#0" expanded="false" />
               </folding>
             </state>
           </provider>
@@ -97,6 +110,7 @@
         <option value="$PROJECT_DIR$/src/NumberBaseTest.groovy" />
         <option value="$PROJECT_DIR$/src/NumberBaseTest.java" />
         <option value="$PROJECT_DIR$/src/NumberBase.java" />
+        <option value="$PROJECT_DIR$/src/NumberBaseTest2.java" />
       </list>
     </option>
   </component>
@@ -139,6 +153,7 @@
     <panes>
       <pane id="Scratches" />
       <pane id="PackagesPane" />
+      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -173,7 +188,6 @@
           </PATH>
         </subPane>
       </pane>
-      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -195,7 +209,70 @@
       <recent name="" />
     </key>
   </component>
-  <component name="RunManager" selected="Application.NumberBase">
+  <component name="RunManager" selected="JUnit.NumberBaseTest2.testAll">
+    <configuration default="false" name="NumberBaseTest2.binaryToBaseTen" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea" />
+      <module name="CIS 251" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
+      <option name="ALTERNATIVE_JRE_PATH" />
+      <option name="PACKAGE_NAME" value="" />
+      <option name="MAIN_CLASS_NAME" value="NumberBaseTest2" />
+      <option name="METHOD_NAME" value="binaryToBaseTen" />
+      <option name="TEST_OBJECT" value="method" />
+      <option name="VM_PARAMETERS" value="-ea" />
+      <option name="PARAMETERS" />
+      <option name="WORKING_DIRECTORY" value="$MODULE_DIR$" />
+      <option name="ENV_VARIABLES" />
+      <option name="PASS_PARENT_ENVS" value="true" />
+      <option name="TEST_SEARCH_SCOPE">
+        <value defaultName="singleModule" />
+      </option>
+      <envs />
+      <patterns />
+      <method />
+    </configuration>
+    <configuration default="false" name="NumberBaseTest2.toInteger" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea" />
+      <module name="CIS 251" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
+      <option name="ALTERNATIVE_JRE_PATH" />
+      <option name="PACKAGE_NAME" value="" />
+      <option name="MAIN_CLASS_NAME" value="NumberBaseTest2" />
+      <option name="METHOD_NAME" value="toInteger" />
+      <option name="TEST_OBJECT" value="method" />
+      <option name="VM_PARAMETERS" value="-ea" />
+      <option name="PARAMETERS" />
+      <option name="WORKING_DIRECTORY" value="$MODULE_DIR$" />
+      <option name="ENV_VARIABLES" />
+      <option name="PASS_PARENT_ENVS" value="true" />
+      <option name="TEST_SEARCH_SCOPE">
+        <value defaultName="singleModule" />
+      </option>
+      <envs />
+      <patterns />
+      <method />
+    </configuration>
+    <configuration default="false" name="NumberBaseTest2.toOtherBase" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea" />
+      <module name="CIS 251" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
+      <option name="ALTERNATIVE_JRE_PATH" />
+      <option name="PACKAGE_NAME" value="" />
+      <option name="MAIN_CLASS_NAME" value="NumberBaseTest2" />
+      <option name="METHOD_NAME" value="toOtherBase" />
+      <option name="TEST_OBJECT" value="method" />
+      <option name="VM_PARAMETERS" value="-ea" />
+      <option name="PARAMETERS" />
+      <option name="WORKING_DIRECTORY" value="$MODULE_DIR$" />
+      <option name="ENV_VARIABLES" />
+      <option name="PASS_PARENT_ENVS" value="true" />
+      <option name="TEST_SEARCH_SCOPE">
+        <value defaultName="singleModule" />
+      </option>
+      <envs />
+      <patterns />
+      <method />
+    </configuration>
     <configuration default="false" name="NumberBase" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea" />
       <option name="MAIN_CLASS_NAME" value="NumberBase" />
@@ -211,77 +288,14 @@
       <envs />
       <method />
     </configuration>
-    <configuration default="false" name="NumberBaseTest.decimal_to_binary" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration default="false" name="NumberBaseTest2.testAll" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea" />
       <module name="CIS 251" />
       <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
       <option name="ALTERNATIVE_JRE_PATH" />
       <option name="PACKAGE_NAME" value="" />
-      <option name="MAIN_CLASS_NAME" value="NumberBaseTest" />
-      <option name="METHOD_NAME" value="decimal_to_binary" />
-      <option name="TEST_OBJECT" value="method" />
-      <option name="VM_PARAMETERS" value="-ea" />
-      <option name="PARAMETERS" />
-      <option name="WORKING_DIRECTORY" value="$MODULE_DIR$" />
-      <option name="ENV_VARIABLES" />
-      <option name="PASS_PARENT_ENVS" value="true" />
-      <option name="TEST_SEARCH_SCOPE">
-        <value defaultName="singleModule" />
-      </option>
-      <envs />
-      <patterns />
-      <method />
-    </configuration>
-    <configuration default="false" name="NumberBaseTest.binary_to_decimal" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea" />
-      <module name="CIS 251" />
-      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
-      <option name="ALTERNATIVE_JRE_PATH" />
-      <option name="PACKAGE_NAME" value="" />
-      <option name="MAIN_CLASS_NAME" value="NumberBaseTest" />
-      <option name="METHOD_NAME" value="binary_to_decimal" />
-      <option name="TEST_OBJECT" value="method" />
-      <option name="VM_PARAMETERS" value="-ea" />
-      <option name="PARAMETERS" />
-      <option name="WORKING_DIRECTORY" value="$MODULE_DIR$" />
-      <option name="ENV_VARIABLES" />
-      <option name="PASS_PARENT_ENVS" value="true" />
-      <option name="TEST_SEARCH_SCOPE">
-        <value defaultName="singleModule" />
-      </option>
-      <envs />
-      <patterns />
-      <method />
-    </configuration>
-    <configuration default="false" name="NumberBaseTest.decimal_to_hex" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea" />
-      <module name="CIS 251" />
-      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
-      <option name="ALTERNATIVE_JRE_PATH" />
-      <option name="PACKAGE_NAME" value="" />
-      <option name="MAIN_CLASS_NAME" value="NumberBaseTest" />
-      <option name="METHOD_NAME" value="decimal_to_hex" />
-      <option name="TEST_OBJECT" value="method" />
-      <option name="VM_PARAMETERS" value="-ea" />
-      <option name="PARAMETERS" />
-      <option name="WORKING_DIRECTORY" value="$MODULE_DIR$" />
-      <option name="ENV_VARIABLES" />
-      <option name="PASS_PARENT_ENVS" value="true" />
-      <option name="TEST_SEARCH_SCOPE">
-        <value defaultName="singleModule" />
-      </option>
-      <envs />
-      <patterns />
-      <method />
-    </configuration>
-    <configuration default="false" name="NumberBaseTest.input_is_valid1" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea" />
-      <module name="CIS 251" />
-      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
-      <option name="ALTERNATIVE_JRE_PATH" />
-      <option name="PACKAGE_NAME" value="" />
-      <option name="MAIN_CLASS_NAME" value="NumberBaseTest" />
-      <option name="METHOD_NAME" value="input_is_valid1" />
+      <option name="MAIN_CLASS_NAME" value="NumberBaseTest2" />
+      <option name="METHOD_NAME" value="testAll" />
       <option name="TEST_OBJECT" value="method" />
       <option name="VM_PARAMETERS" value="-ea" />
       <option name="PARAMETERS" />
@@ -710,19 +724,19 @@
       <method />
     </configuration>
     <list size="5">
-      <item index="0" class="java.lang.String" itemvalue="Application.NumberBase" />
-      <item index="1" class="java.lang.String" itemvalue="JUnit.NumberBaseTest.decimal_to_binary" />
-      <item index="2" class="java.lang.String" itemvalue="JUnit.NumberBaseTest.binary_to_decimal" />
-      <item index="3" class="java.lang.String" itemvalue="JUnit.NumberBaseTest.decimal_to_hex" />
-      <item index="4" class="java.lang.String" itemvalue="JUnit.NumberBaseTest.input_is_valid1" />
+      <item index="0" class="java.lang.String" itemvalue="JUnit.NumberBaseTest2.binaryToBaseTen" />
+      <item index="1" class="java.lang.String" itemvalue="JUnit.NumberBaseTest2.toInteger" />
+      <item index="2" class="java.lang.String" itemvalue="JUnit.NumberBaseTest2.toOtherBase" />
+      <item index="3" class="java.lang.String" itemvalue="Application.NumberBase" />
+      <item index="4" class="java.lang.String" itemvalue="JUnit.NumberBaseTest2.testAll" />
     </list>
     <recent_temporary>
       <list size="5">
-        <item index="0" class="java.lang.String" itemvalue="Application.NumberBase" />
-        <item index="1" class="java.lang.String" itemvalue="JUnit.NumberBaseTest.input_is_valid1" />
-        <item index="2" class="java.lang.String" itemvalue="JUnit.NumberBaseTest.decimal_to_hex" />
-        <item index="3" class="java.lang.String" itemvalue="JUnit.NumberBaseTest.binary_to_decimal" />
-        <item index="4" class="java.lang.String" itemvalue="JUnit.NumberBaseTest.decimal_to_binary" />
+        <item index="0" class="java.lang.String" itemvalue="JUnit.NumberBaseTest2.testAll" />
+        <item index="1" class="java.lang.String" itemvalue="Application.NumberBase" />
+        <item index="2" class="java.lang.String" itemvalue="JUnit.NumberBaseTest2.toOtherBase" />
+        <item index="3" class="java.lang.String" itemvalue="JUnit.NumberBaseTest2.toInteger" />
+        <item index="4" class="java.lang.String" itemvalue="JUnit.NumberBaseTest2.binaryToBaseTen" />
       </list>
     </recent_temporary>
   </component>
@@ -743,7 +757,9 @@
       <workItem from="1472833677229" duration="7994000" />
       <workItem from="1473169984675" duration="8593000" />
       <workItem from="1473179831640" duration="13590000" />
-      <workItem from="1473203455699" duration="8921000" />
+      <workItem from="1473203455699" duration="8956000" />
+      <workItem from="1473256773334" duration="4095000" />
+      <workItem from="1473269194132" duration="3442000" />
     </task>
     <task id="LOCAL-00001" summary="working except for alphabet for hex number etc.">
       <created>1473187363702</created>
@@ -759,34 +775,50 @@
       <option name="project" value="LOCAL" />
       <updated>1473193636811</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="working on invalid input and testing">
+      <created>1473212511855</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1473212511855</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="TestHistory">
-    <history-entry file="NumberBaseTest_binary_to_decimal - 2016.09.06 at 16h 24m 10s.xml">
-      <configuration name="NumberBaseTest.binary_to_decimal" configurationId="JUnit" />
+    <history-entry file="NumberBaseTest2_testAll - 2016.09.07 at 13h 27m 08s.xml">
+      <configuration name="NumberBaseTest2.testAll" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="NumberBaseTest_decimal_to_binary - 2016.09.06 at 15h 55m 04s.xml">
-      <configuration name="NumberBaseTest.decimal_to_binary" configurationId="JUnit" />
+    <history-entry file="NumberBaseTest2_testAll - 2016.09.07 at 13h 48m 39s.xml">
+      <configuration name="NumberBaseTest2.testAll" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="NumberBaseTest_decimal_to_binary - 2016.09.06 at 15h 56m 34s.xml">
-      <configuration name="NumberBaseTest.decimal_to_binary" configurationId="JUnit" />
+    <history-entry file="NumberBaseTest2_testAll - 2016.09.07 at 13h 48m 55s.xml">
+      <configuration name="NumberBaseTest2.testAll" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="NumberBaseTest_decimal_to_binary - 2016.09.06 at 16h 10m 09s.xml">
-      <configuration name="NumberBaseTest.decimal_to_binary" configurationId="JUnit" />
+    <history-entry file="NumberBaseTest2_testAll - 2016.09.07 at 13h 49m 11s.xml">
+      <configuration name="NumberBaseTest2.testAll" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="NumberBaseTest_decimal_to_binary - 2016.09.06 at 16h 24m 05s.xml">
-      <configuration name="NumberBaseTest.decimal_to_binary" configurationId="JUnit" />
+    <history-entry file="NumberBaseTest2_testAll - 2016.09.07 at 13h 51m 57s.xml">
+      <configuration name="NumberBaseTest2.testAll" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="NumberBaseTest_decimal_to_hex - 2016.09.06 at 16h 24m 14s.xml">
-      <configuration name="NumberBaseTest.decimal_to_hex" configurationId="JUnit" />
+    <history-entry file="NumberBaseTest2_testAll - 2016.09.07 at 14h 13m 25s.xml">
+      <configuration name="NumberBaseTest2.testAll" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="NumberBaseTest_input_is_valid1 - 2016.09.06 at 16h 24m 24s.xml">
-      <configuration name="NumberBaseTest.input_is_valid1" configurationId="JUnit" />
+    <history-entry file="NumberBaseTest2_testAll - 2016.09.07 at 14h 18m 43s.xml">
+      <configuration name="NumberBaseTest2.testAll" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="NumberBaseTest2_testAll - 2016.09.07 at 14h 18m 52s.xml">
+      <configuration name="NumberBaseTest2.testAll" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="NumberBaseTest2_testAll - 2016.09.07 at 14h 18m 57s.xml">
+      <configuration name="NumberBaseTest2.testAll" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="NumberBaseTest2_toOtherBase - 2016.09.07 at 11h 06m 59s.xml">
+      <configuration name="NumberBaseTest2.toOtherBase" configurationId="JUnit" />
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="39184000" />
+    <option name="totallyTimeSpent" value="46756000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-9" y="-9" width="1938" height="1048" extended-state="6" />
@@ -800,15 +832,14 @@
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="10" side_tool="true" content_ui="tabs" />
       <window_info id="Documentation" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="FLOATING" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" x="658" y="139" width="603" height="751" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.15477498" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.18799546" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Coverage" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.19583334" sideWeight="0.5051948" order="-1" side_tool="true" content_ui="tabs" />
-      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3295583" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.14010416" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.1443133" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="false" weight="0.3296875" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
-      <window_info id="Structure" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.19583334" sideWeight="0.4948052" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Structure" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.13304721" sideWeight="0.4948052" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="UI Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.1075741" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
@@ -818,6 +849,7 @@
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
+      <window_info id="Coverage" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.19583334" sideWeight="0.5051948" order="10" side_tool="true" content_ui="tabs" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32930845" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
     </layout>
   </component>
@@ -835,7 +867,8 @@
   <component name="VcsManagerConfiguration">
     <MESSAGE value="working except for alphabet for hex number etc." />
     <MESSAGE value="fixed issues and began testing" />
-    <option name="LAST_COMMIT_MESSAGE" value="fixed issues and began testing" />
+    <MESSAGE value="working on invalid input and testing" />
+    <option name="LAST_COMMIT_MESSAGE" value="working on invalid input and testing" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -850,12 +883,82 @@
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/src/NumberBase.java">
       <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="2134">
+          <caret line="97" column="0" selection-start-line="97" selection-start-column="0" selection-end-line="97" selection-end-column="0" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#9111#9112#0" expanded="true" />
+            <element signature="e#9166#9167#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/NumberBaseTest2.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://C:/Program Files/Java/jdk1.8.0_66/src.zip!/java/lang/Integer.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="11682">
+          <caret line="531" column="22" selection-start-line="531" selection-start-column="22" selection-end-line="531" selection-end-column="22" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/NumberBaseTest.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="374">
+          <caret line="17" column="0" selection-start-line="17" selection-start-column="0" selection-end-line="17" selection-end-column="0" />
+          <folding>
+            <element signature="e#1741#1742#0" expanded="false" />
+            <element signature="e#1789#1790#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/NumberBase.java">
+      <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="e#8912#8913#0" expanded="true" />
-            <element signature="e#8968#8969#0" expanded="true" />
+            <element signature="e#9111#9112#0" expanded="true" />
+            <element signature="e#9166#9167#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://C:/Program Files/Java/jdk1.8.0_66/src.zip!/java/lang/Integer.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="10956">
+          <caret line="531" column="22" selection-start-line="531" selection-start-column="22" selection-end-line="531" selection-end-column="22" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/NumberBaseTest.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="352">
+          <caret line="17" column="0" selection-start-line="17" selection-start-column="0" selection-end-line="17" selection-end-column="0" />
+          <folding>
+            <element signature="e#1741#1742#0" expanded="false" />
+            <element signature="e#1789#1790#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/NumberBase.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#9111#9112#0" expanded="true" />
+            <element signature="e#9166#9167#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -865,7 +968,8 @@
         <state relative-caret-position="374">
           <caret line="17" column="0" selection-start-line="17" selection-start-column="0" selection-end-line="17" selection-end-column="0" />
           <folding>
-            <element signature="imports" expanded="true" />
+            <element signature="e#1741#1742#0" expanded="false" />
+            <element signature="e#1789#1790#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -876,8 +980,8 @@
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="e#8912#8913#0" expanded="true" />
-            <element signature="e#8968#8969#0" expanded="true" />
+            <element signature="e#9111#9112#0" expanded="true" />
+            <element signature="e#9166#9167#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -888,8 +992,8 @@
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="e#8912#8913#0" expanded="true" />
-            <element signature="e#8968#8969#0" expanded="true" />
+            <element signature="e#9111#9112#0" expanded="true" />
+            <element signature="e#9166#9167#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -897,17 +1001,18 @@
     <entry file="file://$PROJECT_DIR$/src/NumberBaseTest.groovy" />
     <entry file="file://$PROJECT_DIR$/src/NumberBaseTest.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="110">
+        <state relative-caret-position="352">
           <caret line="17" column="0" selection-start-line="17" selection-start-column="0" selection-end-line="17" selection-end-column="0" />
           <folding>
-            <element signature="imports" expanded="true" />
+            <element signature="e#1741#1742#0" expanded="false" />
+            <element signature="e#1789#1790#0" expanded="false" />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="jar://C:/Program Files/Java/jdk1.8.0_66/src.zip!/java/lang/Integer.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-547">
+        <state relative-caret-position="-242">
           <caret line="531" column="22" selection-start-line="531" selection-start-column="22" selection-end-line="531" selection-end-column="22" />
           <folding />
         </state>
@@ -915,13 +1020,21 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/NumberBase.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="274">
-          <caret line="189" column="9" selection-start-line="189" selection-start-column="9" selection-end-line="189" selection-end-column="9" />
+        <state relative-caret-position="432">
+          <caret line="206" column="45" selection-start-line="206" selection-start-column="45" selection-end-line="206" selection-end-column="45" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="e#8912#8913#0" expanded="true" />
-            <element signature="e#8968#8969#0" expanded="true" />
+            <element signature="e#9111#9112#0" expanded="true" />
+            <element signature="e#9166#9167#0" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/NumberBaseTest2.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="256">
+          <caret line="72" column="13" selection-start-line="72" selection-start-column="13" selection-end-line="72" selection-end-column="13" />
+          <folding />
         </state>
       </provider>
     </entry>

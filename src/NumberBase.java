@@ -20,7 +20,7 @@ public class NumberBase {
      *****************************************************************/
     public static String convert (String input, int base_in, int base_out){
         //checks input
-        if (isValidInput(input, base_in) == false){
+        if (isValidInput(input, base_in)==false){
             throw new IllegalArgumentException();
         }
 
@@ -41,7 +41,7 @@ public class NumberBase {
             //sets sum to method return of toBaseTen
             sum = toBaseTen(nums,BigInteger.valueOf(base_in));
             ans = sum + ""; //quotes used for type conversion
-            ans.trim(); //eliminates whitespace created above
+            ans = ans.trim(); //eliminates whitespace created above
 
         }
         else if (base_in != 10){ //detects if base in is anything but 10
@@ -119,7 +119,7 @@ public class NumberBase {
         //used to convert a value in the arry to the correct number place
         BigInteger num_place = BigInteger.valueOf(1);
 
-        for (int i = 0; i < nums.size(); i++) { //cycles through array
+         for (int i = 0; i < nums.size(); i++) { //cycles through array
 
             //if the value in the array at i is a zero, multiplying by
             //the num_place would result in zero. This statement prevents
@@ -170,36 +170,41 @@ public class NumberBase {
         return nums;
     }
 
+    /*****************************************************************
+     Ensures that input is valid numerically as well as compared
+     to its supposed base
+     @param input to be tested
+     @return true if input is valid, false if not
+     *****************************************************************/
     public static boolean isValidInput (String input, int base_in){
         boolean valid = true;
-        if (input.matches("[^a-z0-9]")){
-            System.out.println("input non alpha-numeric or contains uppercase letters");
+        ArrayList<BigInteger> nums = convertIntoArray(input);
+        BigInteger baseIn = BigInteger.valueOf(base_in).subtract(BigInteger.ONE);
+
+        if (!input.matches("^[a-z0-9]*$")){ //checks for non-alphanumeric chars
             valid = false;
         }
-        if (input.matches(".*\\s+.*")){
-            System.out.println("input contains spaces");
+        if (input.matches(".*\\s+.*")){ //checks for white space
             valid = false;
         }
-        if (input.length() == 0){
-            System.out.println("input length zero");
+        if (input.length() == 0){ //checks input isnt empty
             valid = false;
         }
-        if (input == null){
-            System.out.println("input string is null");
+        if (input == null){ //checks input isnt null
             valid = false;
         }
 
-      /*  BigInteger input_as_int = toInteger(convertIntoArray(input));
-        BigInteger base_in_as_big_int = BigInteger.valueOf(base_in);
-        if (input_as_int.hashCode() > base_in_as_big_int.hashCode()){
-            System.out.println("input greater than base");
-            valid = false;
-        }*/
+        for (BigInteger temp: nums) { //checks that input is in the correct base
+            if (temp.compareTo(baseIn)== 1) {
+                valid = false;
+            }
+        }
+
         return valid;
     }
 
     public static void main(String[] args) {
-        System.out.println(convert("af", 10, 2));
+        System.out.println(convert("A", 36, 2));
     }
 
 }
