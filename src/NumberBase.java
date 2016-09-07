@@ -178,6 +178,11 @@ public class NumberBase {
      *****************************************************************/
     public static boolean isValidInput (String input, int base_in){
         boolean valid = true;
+
+        if (input == null){ //checks input isnt null, first to prevent null pointer ex
+            return false;
+        }
+
         ArrayList<BigInteger> nums = convertIntoArray(input);
         BigInteger baseIn = BigInteger.valueOf(base_in).subtract(BigInteger.ONE);
 
@@ -190,16 +195,12 @@ public class NumberBase {
         if (input.length() == 0){ //checks input isnt empty
             valid = false;
         }
-        if (input == null){ //checks input isnt null
-            valid = false;
-        }
 
         for (BigInteger temp: nums) { //checks that input is in the correct base
             if (temp.compareTo(baseIn)== 1) {
                 valid = false;
             }
         }
-
         return valid;
     }
 

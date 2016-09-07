@@ -75,12 +75,74 @@ public class NumberBaseTest2 {
     }
 
     /*****************************************************************
-     Tests that exceptions are thrown when input is invalid
+     Tests that exceptions are thrown when input is non-alphanumeric
      @throws IllegalArgumentException
      *****************************************************************/
     @Test
-    public void testInput () throws Exception {
-
+    public void testAlphaNum () throws Exception {
+        exception.expect(IllegalArgumentException.class);
+        NumberBase.convert("$%#", 2, 3);
     }
 
+    /*****************************************************************
+     Tests that exceptions are thrown when input is uppercase
+     @throws IllegalArgumentException
+     *****************************************************************/
+    @Test
+    public void testUpperCase () throws Exception {
+        exception.expect(IllegalArgumentException.class);
+        NumberBase.convert("A5", 16, 3);
+    }
+
+    /*****************************************************************
+     Tests that exceptions are thrown when input contains spaces
+     @throws IllegalArgumentException
+     *****************************************************************/
+    @Test
+    public void testSpaces () throws Exception {
+        exception.expect(IllegalArgumentException.class);
+        NumberBase.convert("1 4", 5, 3);
+    }
+
+    /*****************************************************************
+     Tests that exceptions are thrown when input is null
+     @throws IllegalArgumentException
+     *****************************************************************/
+    @Test
+    public void testNull () throws Exception {
+        exception.expect(IllegalArgumentException.class);
+        NumberBase.convert(null, 2, 3);
+    }
+
+    /*****************************************************************
+     Tests that exceptions are thrown when input string is empty
+     @throws IllegalArgumentException
+     *****************************************************************/
+    @Test
+    public void testEmpty () throws Exception {
+        exception.expect(IllegalArgumentException.class);
+        NumberBase.convert("", 2, 3);
+    }
+
+    /*****************************************************************
+     Tests that exceptions are thrown when input is incompatible with
+     the give base i.e a base ten number cannot have letters
+     @throws IllegalArgumentException
+     *****************************************************************/
+    @Test
+    public void testIncompatible () throws Exception {
+        exception.expect(IllegalArgumentException.class);
+        NumberBase.convert("4c", 2, 3);
+    }
+
+    /*****************************************************************
+     Tests that exceptions are thrown when input is incompatible with
+     the give base i.e a base ten number cannot have letters
+     @throws IllegalArgumentException
+     *****************************************************************/
+    @Test
+    public void testIncompatible2 () throws Exception {
+        exception.expect(IllegalArgumentException.class);
+        NumberBase.convert("24z", 16, 2);
+    }
 }
