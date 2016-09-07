@@ -1,52 +1,132 @@
-import org.junit.Assert;
+import org.junit.After;
+import org.junit.Before;
 import org.junit.Test;
 
-/**
- * Example unit tests for the NumberBase.conversions method
- *
- * @author Zachary Kurmas
- * @modifier Jared Moore
- */
-// Created  8/26/13 at 11:48 AM
-// (C) Zachary Kurmas 2013
-// Modified 07/26/2016 by Jared Moore
+import java.util.Random;
+
+import static junit.framework.TestCase.assertEquals;
+
+/*****************************************************************
+ Test for numberBase class
+
+ @author Jake Geers
+ @version 9/7/2016
+ *****************************************************************/
 
 public class NumberBaseTest {
 
+    /** Random number generator */
+    Random rand;
+
+    @Before
+    public void setUp() throws Exception {
+    }
+
+    @After
+    public void tearDown() throws Exception {
+
+    }
+
+    /*****************************************************************
+     Test for converting binary into base 10
+     @throws IllegalArgumentException
+     *****************************************************************/
     @Test
-    public void decimal_to_binary() throws Throwable {
-        Assert.assertEquals("0", NumberBase.convert("0", 10, 2));
-        Assert.assertEquals("1", NumberBase.convert("1", 10, 2));
-        Assert.assertEquals("1010", NumberBase.convert("10", 10, 2));
-        Assert.assertEquals("1000011110001", NumberBase.convert("4337", 10, 2));
+    public void binaryToBaseTen() throws Exception {
+        for (int i = 0; i < 100; i++) {
+            rand = new Random();
+            int n = rand.nextInt(100000);
+            String num_in_binary = Integer.toBinaryString(n);
+            String num_in_decimal = Integer.toString(n);
+            assertEquals(num_in_decimal, NumberBase.convert(num_in_binary, 2, 10));
+        }
     }
 
+    /*****************************************************************
+     Converts 1000 random inputs in random bases to random bases
+     @throws IllegalArgumentException
+     *****************************************************************/
     @Test
-    public void binary_to_decimal() throws Throwable {
-        Assert.assertEquals("0", NumberBase.convert("0", 2, 10));
-        Assert.assertEquals("1", NumberBase.convert("1", 2, 10));
-        Assert.assertEquals("2", NumberBase.convert("10", 2, 10));
-        Assert.assertEquals("3", NumberBase.convert("11", 2, 10));
-        Assert.assertEquals("10", NumberBase.convert("1010", 2, 10));
-        Assert.assertEquals("4337", NumberBase.convert("1000011110001", 2, 10));
+    public void testAll() throws Exception {
+        for (int i = 0; i < 1000; i++) {
+            rand = new Random();
+            int input = rand.nextInt(2147483647); //max input num
+            int baseIn = rand.nextInt(35)+2; //rand num from 2-36
+            int baseOut = rand.nextInt(35)+2; //rand num from 2-36
+            String input_as_str = Integer.toString(input);
+            String input_as_rnd_base = Integer.toString(input, baseIn); //converting input to baseIn base
+            try {
+                assertEquals(input_as_str, NumberBase.convert(input_as_rnd_base, baseIn, baseOut));
+            } catch (AssertionError ex ){
+                System.out.println("Input: " + input);
+                System.out.println("baseIn: " + baseIn);
+                System.out.println("baseOut: " + baseOut);
+            }
+        }
     }
 
-    @Test
-    public void decimal_to_hex() throws Throwable {
-        Assert.assertEquals("0", NumberBase.convert("0", 10, 16));
-        Assert.assertEquals("1", NumberBase.convert("1", 10, 16));
-        Assert.assertEquals("a", NumberBase.convert("10", 10, 16));
-        Assert.assertEquals("64", NumberBase.convert("100", 10, 16));
-        Assert.assertEquals("dead", NumberBase.convert("57005", 10, 16));
+    /*****************************************************************
+     Tests that exceptions are thrown when input is non-alphanumeric
+     @throws IllegalArgumentException
+     *****************************************************************/
+    @Test (expected = IllegalArgumentException.class)
+    public void testAlphaNum () throws Exception {
+        NumberBase.convert("$%#", 2, 3);
     }
 
-    // Remember:  When looking for an exception, you can do only *one* test
-    // per method.
-    @Test(expected = IllegalArgumentException.class)
-    public void input_is_valid1() {
-        NumberBase.convert("14d", 10, 2);
+    /*****************************************************************
+     Tests that exceptions are thrown when input is uppercase
+     @throws IllegalArgumentException
+     *****************************************************************/
+    @Test (expected = IllegalArgumentException.class)
+    public void testUpperCase () throws Exception {
+        NumberBase.convert("A5", 16, 3);
     }
 
+    /*****************************************************************
+     Tests that exceptions are thrown when input contains spaces
+     @throws IllegalArgumentException
+     *****************************************************************/
+    @Test (expected = IllegalArgumentException.class)
+    public void testSpaces () throws Exception {
+        NumberBase.convert("1 4", 5, 3);
+    }
 
-    // Write other tests for different base pairs and edge cases!
+    /*****************************************************************
+     Tests that exceptions are thrown when input is null
+     @throws IllegalArgumentException
+     *****************************************************************/
+    @Test (expected = IllegalArgumentException.class)
+    public void testNull () throws Exception {
+        NumberBase.convert(null, 2, 3);
+    }
+
+    /*****************************************************************
+     Tests that exceptions are thrown when input string is empty
+     @throws IllegalArgumentException
+     *****************************************************************/
+    @Test (expected = IllegalArgumentException.class)
+    public void testEmpty () throws Exception {
+        NumberBase.convert("", 2, 3);
+    }
+
+    /*****************************************************************
+     Tests that exceptions are thrown when input is incompatible with
+     the give base i.e a base ten number cannot have letters
+     @throws IllegalArgumentException
+     *****************************************************************/
+    @Test (expected = IllegalArgumentException.class)
+    public void testIncompatible () throws Exception {
+        NumberBase.convert("4c", 2, 3);
+    }
+
+    /*****************************************************************
+     Tests that exceptions are thrown when input is incompatible with
+     the give base i.e a base ten number cannot have letters
+     @throws IllegalArgumentException
+     *****************************************************************/
+    @Test (expected = IllegalArgumentException.class)
+    public void testIncompatible2 () throws Exception {
+        NumberBase.convert("24z", 16, 2);
+    }
 }

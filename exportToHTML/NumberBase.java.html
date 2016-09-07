@@ -7,9 +7,10 @@
 .s0 { color: rgb(204,120,50); }
 .s1 { color: rgb(169,183,198); }
 .s2 { color: rgb(98,151,85); font-style: italic; }
-.s3 { color: rgb(106,135,89); }
-.s4 { color: rgb(104,151,187); }
-.s5 { color: rgb(128,128,128); }
+.s3 { color: rgb(98,151,85); font-weight: bold; font-style: italic; }
+.s4 { color: rgb(128,128,128); }
+.s5 { color: rgb(104,151,187); }
+.s6 { color: rgb(106,135,89); }
 </style>
 </head>
 <BODY BGCOLOR="#2b2b2b">
@@ -19,108 +20,217 @@
 NumberBase.java</FONT>
 </center></TD></TR></TABLE>
 <pre>
-<span class="s0">import </span><span class="s1">java.util.ArrayList</span><span class="s0">;</span><span class="s1"> 
+<span class="s0">import </span><span class="s1">java.math.BigInteger</span><span class="s0">;</span><span class="s1"> 
+</span><span class="s0">import </span><span class="s1">java.util.ArrayList</span><span class="s0">;</span><span class="s1"> 
  
-</span><span class="s2">/** 
- Created by Jake on 9/2/2016. 
- */</span><span class="s1"> 
+</span><span class="s2">/***************************************************************** 
+ This class converts a number between two bases ranging from 2-36 
+ 
+ </span><span class="s3">@author </span><span class="s2">Jake Geers 
+ </span><span class="s3">@version </span><span class="s2">9/6/2016 
+ *****************************************************************/</span><span class="s1"> 
 </span><span class="s0">public class </span><span class="s1">NumberBase { 
  
- 
- 
+    </span><span class="s2">/***************************************************************** 
+     Central method used to convert bases. Calls various other methods 
+     to help convert. 
+     </span><span class="s3">@param </span><span class="s2">input the string representation of number to convert 
+     </span><span class="s3">@param </span><span class="s2">base_in the base that input is in currently 
+     </span><span class="s3">@param </span><span class="s2">base_out the base which input will be converted into 
+     </span><span class="s3">@throws </span><span class="s2">IllegalArgumentException when params are improper 
+     </span><span class="s3">@return </span><span class="s2">String representation of converted input 
+     *****************************************************************/</span><span class="s1"> 
     </span><span class="s0">public static </span><span class="s1">String convert (String input</span><span class="s0">, int </span><span class="s1">base_in</span><span class="s0">, int </span><span class="s1">base_out){ 
-        ArrayList&lt;Integer&gt; nums = convertIntoArray(input)</span><span class="s0">;</span><span class="s1"> 
-        </span><span class="s0">int </span><span class="s1">input_as_integer = toInteger(nums)</span><span class="s0">;</span><span class="s1"> 
-        String ans = </span><span class="s3">&quot;&quot;</span><span class="s0">;</span><span class="s1"> 
-        </span><span class="s0">int </span><span class="s1">sum = -</span><span class="s4">1</span><span class="s0">;</span><span class="s1"> 
-        </span><span class="s0">if </span><span class="s1">(base_out == </span><span class="s4">10</span><span class="s1">){ 
-            sum = toBaseTen(nums</span><span class="s0">,</span><span class="s1">base_in)</span><span class="s0">;</span><span class="s1"> 
-            ans = String.valueOf(sum)</span><span class="s0">;</span><span class="s1"> 
-        } 
-        </span><span class="s0">else</span><span class="s1">{ 
-            ArrayList&lt;Integer&gt; temp = </span><span class="s0">new </span><span class="s1">ArrayList&lt;&gt;()</span><span class="s0">;</span><span class="s1"> 
-            sum = toBaseTwo(input_as_integer</span><span class="s0">, </span><span class="s1">base_out</span><span class="s0">, </span><span class="s1">temp)</span><span class="s0">;</span><span class="s1"> 
-            ans = String.valueOf(sum)</span><span class="s0">;</span><span class="s1"> 
+        </span><span class="s4">//checks input</span><span class="s1"> 
+        </span><span class="s0">if </span><span class="s1">(isValidInput(input</span><span class="s0">, </span><span class="s1">base_in)==</span><span class="s0">false</span><span class="s1">){ 
+            </span><span class="s0">throw new </span><span class="s1">IllegalArgumentException()</span><span class="s0">;</span><span class="s1"> 
         } 
  
+        </span><span class="s4">//creates array of bigInts via convertIntoArray method</span><span class="s1"> 
+        ArrayList&lt;BigInteger&gt; nums = convertIntoArray(input)</span><span class="s0">;</span><span class="s1"> 
+ 
+        </span><span class="s4">//transforms nums array into a single bigInt</span><span class="s1"> 
+        BigInteger input_as_integer = toInteger(nums)</span><span class="s0">;</span><span class="s1"> 
+ 
+        </span><span class="s4">//returned string</span><span class="s1"> 
+        String ans</span><span class="s0">;</span><span class="s1"> 
+ 
+        </span><span class="s4">//variable used to temporarily hold converted input</span><span class="s1"> 
+        BigInteger sum</span><span class="s0">;</span><span class="s1"> 
+ 
+ 
+        </span><span class="s0">if </span><span class="s1">(base_out == </span><span class="s5">10</span><span class="s1">){ </span><span class="s4">//checking if base out is base10</span><span class="s1"> 
+            </span><span class="s4">//sets sum to method return of toBaseTen</span><span class="s1"> 
+            sum = toBaseTen(nums</span><span class="s0">,</span><span class="s1">BigInteger.valueOf(base_in))</span><span class="s0">;</span><span class="s1"> 
+            ans = sum + </span><span class="s6">&quot;&quot;</span><span class="s0">; </span><span class="s4">//quotes used for type conversion</span><span class="s1"> 
+            ans = ans.trim()</span><span class="s0">; </span><span class="s4">//eliminates whitespace created above</span><span class="s1"> 
+ 
+        } 
+        </span><span class="s0">else if </span><span class="s1">(base_in != </span><span class="s5">10</span><span class="s1">){ </span><span class="s4">//detects if base in is anything but 10</span><span class="s1"> 
+            </span><span class="s4">//converts input to base ten</span><span class="s1"> 
+            BigInteger input_in_base_ten = toBaseTen(nums</span><span class="s0">, </span><span class="s1">BigInteger.valueOf(base_in))</span><span class="s0">;</span><span class="s1"> 
+ 
+            </span><span class="s4">//necessary for recursion in toOtherBase method</span><span class="s1"> 
+            ArrayList&lt;BigInteger&gt; temp = </span><span class="s0">new </span><span class="s1">ArrayList&lt;&gt;()</span><span class="s0">;</span><span class="s1"> 
+ 
+            </span><span class="s4">//now that input is in base ten, converts to desired base</span><span class="s1"> 
+            ans = toOtherBase(input_in_base_ten</span><span class="s0">, </span><span class="s1">BigInteger.valueOf(base_out)</span><span class="s0">, </span><span class="s1">temp)</span><span class="s0">;</span><span class="s1"> 
+ 
+        } </span><span class="s0">else </span><span class="s1">{ </span><span class="s4">//catches case in-which baseIn is 10</span><span class="s1"> 
+            </span><span class="s4">//necessary for recursion in toOtherBase method</span><span class="s1"> 
+            ArrayList&lt;BigInteger&gt; temp = </span><span class="s0">new </span><span class="s1">ArrayList&lt;&gt;()</span><span class="s0">;</span><span class="s1"> 
+ 
+            </span><span class="s4">//since baseIn is 10 we skip converting toBaseTen</span><span class="s1"> 
+            ans = toOtherBase(input_as_integer</span><span class="s0">, </span><span class="s1">BigInteger.valueOf(base_out)</span><span class="s0">, </span><span class="s1">temp)</span><span class="s0">;</span><span class="s1"> 
+        } 
+ 
+        </span><span class="s0">if </span><span class="s1">(ans.startsWith(</span><span class="s6">&quot;0&quot;</span><span class="s1">)){ </span><span class="s4">//checking for leading zeros</span><span class="s1"> 
+            </span><span class="s4">//regex that removes all leading zeros unless needed i.e ans = 0</span><span class="s1"> 
+            </span><span class="s4">//regex taken from stack overflow thread</span><span class="s1"> 
+            ans = ans.replaceFirst(</span><span class="s6">&quot;^0+(?!$)&quot;</span><span class="s0">, </span><span class="s6">&quot;&quot;</span><span class="s1">)</span><span class="s0">;</span><span class="s1"> 
+        } 
  
         </span><span class="s0">return </span><span class="s1">ans</span><span class="s0">;</span><span class="s1"> 
     } 
  
-    </span><span class="s0">public static int </span><span class="s1">toBaseTwo (</span><span class="s0">int </span><span class="s1">input</span><span class="s0">, int </span><span class="s1">base_out</span><span class="s0">,</span><span class="s1">ArrayList&lt;Integer&gt; remainders ){ 
-        </span><span class="s5">//ArrayList&lt;Integer&gt; remainders = new ArrayList&lt;&gt;();</span><span class="s1"> 
-        remainders.add(input%base_out)</span><span class="s0">;</span><span class="s1"> 
-        </span><span class="s0">if </span><span class="s1">(input &lt;=</span><span class="s4">0</span><span class="s1">){ 
-            System.out.println(remainders)</span><span class="s0">;</span><span class="s1"> 
-            </span><span class="s0">return </span><span class="s1">toInteger(remainders)</span><span class="s0">;</span><span class="s1"> 
-        } 
-        </span><span class="s0">else </span><span class="s1">{ 
-            </span><span class="s0">return </span><span class="s1">toBaseTwo(input/base_out</span><span class="s0">, </span><span class="s1">base_out</span><span class="s0">, </span><span class="s1">remainders)</span><span class="s0">;</span><span class="s1"> 
-        } 
- 
- 
- 
-    } 
- 
-    </span><span class="s0">public static int </span><span class="s1">toInteger (ArrayList&lt;Integer&gt; nums){ 
-        </span><span class="s0">int </span><span class="s1">sum = </span><span class="s4">0</span><span class="s0">;</span><span class="s1"> 
-        </span><span class="s0">int </span><span class="s1">num_place = </span><span class="s4">1</span><span class="s0">;</span><span class="s1"> 
- 
-        </span><span class="s0">for </span><span class="s1">(</span><span class="s0">int </span><span class="s1">i = </span><span class="s4">0</span><span class="s0">; </span><span class="s1">i &lt; nums.size()</span><span class="s0">; </span><span class="s1">i++) { 
-            sum += nums.get(i)*num_place</span><span class="s0">;</span><span class="s1"> 
-            num_place*=</span><span class="s4">10</span><span class="s0">;</span><span class="s1"> 
- 
+    </span><span class="s2">/***************************************************************** 
+     Converts any input in any base into base 10 
+     </span><span class="s3">@param </span><span class="s2">nums arrayList which holds each digit of initial input 
+     </span><span class="s3">@param </span><span class="s2">base_in base which input was initially 
+     </span><span class="s3">@return </span><span class="s2">number converted to base 10 
+     *****************************************************************/</span><span class="s1"> 
+    </span><span class="s0">public static </span><span class="s1">BigInteger toBaseTen (ArrayList&lt;BigInteger&gt; nums</span><span class="s0">, </span><span class="s1">BigInteger base_in){ 
+        BigInteger sum = BigInteger.valueOf(</span><span class="s5">0</span><span class="s1">)</span><span class="s0">;</span><span class="s1"> 
+        </span><span class="s0">for </span><span class="s1">(</span><span class="s0">int </span><span class="s1">i = </span><span class="s5">0</span><span class="s0">; </span><span class="s1">i &lt; nums.size()</span><span class="s0">; </span><span class="s1">i++) { </span><span class="s4">//cycles through array</span><span class="s1"> 
+            </span><span class="s4">//multiplies nums value at i by the baseIn raised to the</span><span class="s1"> 
+            </span><span class="s4">// i'th power and then adds to sum</span><span class="s1"> 
+            sum = sum.add(nums.get(i).multiply(base_in.pow(i)))</span><span class="s0">;</span><span class="s1"> 
         } 
         </span><span class="s0">return </span><span class="s1">sum</span><span class="s0">;</span><span class="s1"> 
     } 
  
-    </span><span class="s0">public static int </span><span class="s1">toBaseTen (ArrayList&lt;Integer&gt; nums</span><span class="s0">, int </span><span class="s1">base_in){ 
-        </span><span class="s0">int </span><span class="s1">sum = </span><span class="s4">0</span><span class="s0">;</span><span class="s1"> 
+    </span><span class="s2">/***************************************************************** 
+     Converts input into any base besides base 10 
+     </span><span class="s3">@param </span><span class="s2">input bigInt representation of original input string 
+     </span><span class="s3">@param </span><span class="s2">base_out base to which to convert 
+     </span><span class="s3">@param </span><span class="s2">remainders holds remainders for use in toLetters method 
+     </span><span class="s3">@return </span><span class="s2">converted base as a string 
+     *****************************************************************/</span><span class="s1"> 
+    </span><span class="s0">public static </span><span class="s1">String toOtherBase(BigInteger input</span><span class="s0">, </span><span class="s1">BigInteger base_out</span><span class="s0">, </span><span class="s1">ArrayList&lt;BigInteger&gt; remainders ){ 
+        remainders.add(input.mod(base_out))</span><span class="s0">; </span><span class="s4">//adding remainder to array</span><span class="s1"> 
  
-        </span><span class="s0">for </span><span class="s1">(</span><span class="s0">int </span><span class="s1">i = </span><span class="s4">0</span><span class="s0">; </span><span class="s1">i &lt; nums.size()</span><span class="s0">; </span><span class="s1">i++) { 
-            sum += nums.get(i) * Math.pow(base_in</span><span class="s0">, </span><span class="s1">i)</span><span class="s0">;</span><span class="s1"> 
+        </span><span class="s4">//exits recursion when modular division reaches zero</span><span class="s1"> 
+        </span><span class="s0">if </span><span class="s1">(input.compareTo(BigInteger.ZERO) == </span><span class="s5">0</span><span class="s1">){ 
+            </span><span class="s4">//sends remainder array to be converted into a string</span><span class="s1"> 
+            </span><span class="s0">return </span><span class="s1">toLetters(remainders)</span><span class="s0">;</span><span class="s1"> 
+        } </span><span class="s0">else </span><span class="s1">{ 
+            </span><span class="s4">//recursive call sends input divided by baseOut and retains list of remainders</span><span class="s1"> 
+            </span><span class="s0">return </span><span class="s1">toOtherBase(input.divide(base_out)</span><span class="s0">, </span><span class="s1">base_out</span><span class="s0">, </span><span class="s1">remainders)</span><span class="s0">;</span><span class="s1"> 
         } 
+    } 
  
+    </span><span class="s2">/***************************************************************** 
+     Converts an arrayList of bigInts into a single bigInt 
+     </span><span class="s3">@param </span><span class="s2">nums an arrayList that represents each digit of the 
+     original input 
+     </span><span class="s3">@return </span><span class="s2">the bigInt value of the original input 
+     *****************************************************************/</span><span class="s1"> 
+    </span><span class="s0">public static </span><span class="s1">BigInteger toInteger (ArrayList&lt;BigInteger&gt; nums){ 
+        BigInteger sum = BigInteger.valueOf(</span><span class="s5">0</span><span class="s1">)</span><span class="s0">;</span><span class="s1"> 
+ 
+        </span><span class="s4">//used to convert a value in the arry to the correct number place</span><span class="s1"> 
+        BigInteger num_place = BigInteger.valueOf(</span><span class="s5">1</span><span class="s1">)</span><span class="s0">;</span><span class="s1"> 
+ 
+         </span><span class="s0">for </span><span class="s1">(</span><span class="s0">int </span><span class="s1">i = </span><span class="s5">0</span><span class="s0">; </span><span class="s1">i &lt; nums.size()</span><span class="s0">; </span><span class="s1">i++) { </span><span class="s4">//cycles through array</span><span class="s1"> 
+ 
+            </span><span class="s4">//if the value in the array at i is a zero, multiplying by</span><span class="s1"> 
+            </span><span class="s4">//the num_place would result in zero. This statement prevents</span><span class="s1"> 
+            </span><span class="s4">//this by ignoring the zero and continuing through loop</span><span class="s1"> 
+            </span><span class="s0">if </span><span class="s1">(nums.get(i).compareTo(BigInteger.ZERO) == </span><span class="s5">0</span><span class="s1">){ 
+                num_place = num_place.multiply(BigInteger.valueOf(</span><span class="s5">10</span><span class="s1">))</span><span class="s0">;</span><span class="s1"> 
+            } </span><span class="s0">else </span><span class="s1">{ 
+                </span><span class="s4">//multiplies value at i with its number place and adds it to sum</span><span class="s1"> 
+                sum = sum.add(nums.get(i).multiply(num_place))</span><span class="s0">;</span><span class="s1"> 
+                num_place = num_place.multiply(BigInteger.valueOf(</span><span class="s5">10</span><span class="s1">))</span><span class="s0">;</span><span class="s1"> 
+            } 
+        } 
         </span><span class="s0">return </span><span class="s1">sum</span><span class="s0">;</span><span class="s1"> 
     } 
  
+    </span><span class="s2">/***************************************************************** 
+     Converts an array of bigInts into a string that represents the 
+     array in the correct value based on base 
+     </span><span class="s3">@param </span><span class="s2">nums arrayList of bigInts holding the value to be transformed 
+     </span><span class="s3">@return </span><span class="s2">a string of letters and numbers representing converted base 
+     *****************************************************************/</span><span class="s1"> 
+    </span><span class="s0">public static </span><span class="s1">String toLetters (ArrayList&lt;BigInteger&gt; nums){ 
+        String ans = </span><span class="s6">&quot;&quot;</span><span class="s0">;</span><span class="s1"> 
+        String[] letters = { </span><span class="s4">//array holding sequence of values used to go up to base 36</span><span class="s1"> 
+                </span><span class="s6">&quot;0&quot;</span><span class="s0">, </span><span class="s6">&quot;1&quot;</span><span class="s0">, </span><span class="s6">&quot;2&quot;</span><span class="s0">, </span><span class="s6">&quot;3&quot;</span><span class="s0">, </span><span class="s6">&quot;4&quot;</span><span class="s0">, </span><span class="s6">&quot;5&quot;</span><span class="s0">, </span><span class="s6">&quot;6&quot;</span><span class="s0">, </span><span class="s6">&quot;7&quot;</span><span class="s0">, </span><span class="s6">&quot;8&quot;</span><span class="s0">, </span><span class="s6">&quot;9&quot;</span><span class="s0">, </span><span class="s6">&quot;a&quot;</span><span class="s0">, </span><span class="s6">&quot;b&quot;</span><span class="s0">, </span><span class="s6">&quot;c&quot;</span><span class="s0">, </span><span class="s6">&quot;d&quot;</span><span class="s0">, </span><span class="s6">&quot;e&quot;</span><span class="s0">, </span><span class="s6">&quot;f&quot;</span><span class="s0">, </span><span class="s6">&quot;g&quot;</span><span class="s0">, </span><span class="s6">&quot;h&quot;</span><span class="s0">,</span><span class="s1"> 
+                </span><span class="s6">&quot;i&quot;</span><span class="s0">, </span><span class="s6">&quot;j&quot;</span><span class="s0">, </span><span class="s6">&quot;k&quot;</span><span class="s0">, </span><span class="s6">&quot;l&quot;</span><span class="s0">, </span><span class="s6">&quot;m&quot;</span><span class="s0">, </span><span class="s6">&quot;n&quot;</span><span class="s0">, </span><span class="s6">&quot;o&quot;</span><span class="s0">, </span><span class="s6">&quot;p&quot;</span><span class="s0">, </span><span class="s6">&quot;q&quot;</span><span class="s0">, </span><span class="s6">&quot;r&quot;</span><span class="s0">, </span><span class="s6">&quot;s&quot;</span><span class="s0">, </span><span class="s6">&quot;t&quot;</span><span class="s0">, </span><span class="s6">&quot;u&quot;</span><span class="s0">, </span><span class="s6">&quot;v&quot;</span><span class="s0">, </span><span class="s6">&quot;w&quot;</span><span class="s0">, </span><span class="s6">&quot;x&quot;</span><span class="s0">, </span><span class="s6">&quot;y&quot;</span><span class="s0">, </span><span class="s6">&quot;z&quot;</span><span class="s1"> 
+        }</span><span class="s0">;</span><span class="s1"> 
+        </span><span class="s0">for </span><span class="s1">(</span><span class="s0">int </span><span class="s1">i = </span><span class="s5">0</span><span class="s0">; </span><span class="s1">i &lt; nums.size()</span><span class="s0">; </span><span class="s1">i++) { </span><span class="s4">//cycles through array</span><span class="s1"> 
+            ans = letters[nums.get(i).intValue()] + ans</span><span class="s0">; </span><span class="s4">//adding values to string in reverse order</span><span class="s1"> 
+        } 
+        </span><span class="s0">return </span><span class="s1">ans</span><span class="s0">;</span><span class="s1"> 
+    } 
  
-    </span><span class="s0">public static </span><span class="s1">ArrayList&lt;Integer&gt; convertIntoArray (String input){ 
-        ArrayList&lt;Integer&gt; nums = </span><span class="s0">new </span><span class="s1">ArrayList&lt;&gt;()</span><span class="s0">;</span><span class="s1"> 
-        </span><span class="s0">char </span><span class="s1">[] charDigits = input.toCharArray()</span><span class="s0">;</span><span class="s1"> 
-        </span><span class="s0">for </span><span class="s1">(</span><span class="s0">int </span><span class="s1">i = charDigits.length-</span><span class="s4">1</span><span class="s0">; </span><span class="s1">i &gt;= </span><span class="s4">0</span><span class="s0">; </span><span class="s1">i--) { 
-            nums.add(Character.getNumericValue(charDigits[i]))</span><span class="s0">;</span><span class="s1"> 
+    </span><span class="s2">/***************************************************************** 
+     Converts original input in the form of a string into an array with 
+     each element added in reverse order 
+     </span><span class="s3">@param </span><span class="s2">input string representation of original input in base baseIn 
+     </span><span class="s3">@return </span><span class="s2">an arrayList of bigInts whos elemnts hold a single digit 
+     of the original input in reverse order 
+     *****************************************************************/</span><span class="s1"> 
+    </span><span class="s0">public static </span><span class="s1">ArrayList&lt;BigInteger&gt; convertIntoArray (String input){ 
+        ArrayList&lt;BigInteger&gt; nums = </span><span class="s0">new </span><span class="s1">ArrayList&lt;&gt;()</span><span class="s0">;</span><span class="s1"> 
+        </span><span class="s0">char </span><span class="s1">[] charDigits = input.toCharArray()</span><span class="s0">; </span><span class="s4">//converting to array</span><span class="s1"> 
+        </span><span class="s0">for </span><span class="s1">(</span><span class="s0">int </span><span class="s1">i = charDigits.length-</span><span class="s5">1</span><span class="s0">; </span><span class="s1">i &gt;= </span><span class="s5">0</span><span class="s0">; </span><span class="s1">i--) { </span><span class="s4">//cycles through in reverse order</span><span class="s1"> 
+            </span><span class="s4">//converts char to int to bigInt and adds to nums array</span><span class="s1"> 
+            nums.add(BigInteger.valueOf(Character.getNumericValue(charDigits[i])))</span><span class="s0">;</span><span class="s1"> 
         } 
         </span><span class="s0">return </span><span class="s1">nums</span><span class="s0">;</span><span class="s1"> 
     } 
  
+    </span><span class="s2">/***************************************************************** 
+     Ensures that input is valid numerically as well as compared 
+     to its supposed base 
+     </span><span class="s3">@param </span><span class="s2">input to be tested 
+     </span><span class="s3">@return </span><span class="s2">true if input is valid, false if not 
+     *****************************************************************/</span><span class="s1"> 
+    </span><span class="s0">public static boolean </span><span class="s1">isValidInput (String input</span><span class="s0">, int </span><span class="s1">base_in){ 
+        </span><span class="s0">boolean </span><span class="s1">valid = </span><span class="s0">true;</span><span class="s1"> 
  
+        </span><span class="s0">if </span><span class="s1">(input == </span><span class="s0">null</span><span class="s1">){ </span><span class="s4">//checks input isnt null, first to prevent null pointer ex</span><span class="s1"> 
+            </span><span class="s0">return false;</span><span class="s1"> 
+        } 
+ 
+        ArrayList&lt;BigInteger&gt; nums = convertIntoArray(input)</span><span class="s0">;</span><span class="s1"> 
+        BigInteger baseIn = BigInteger.valueOf(base_in).subtract(BigInteger.ONE)</span><span class="s0">;</span><span class="s1"> 
+ 
+        </span><span class="s0">if </span><span class="s1">(!input.matches(</span><span class="s6">&quot;^[a-z0-9]*$&quot;</span><span class="s1">)){ </span><span class="s4">//checks for non-alphanumeric chars</span><span class="s1"> 
+            valid = </span><span class="s0">false;</span><span class="s1"> 
+        } 
+        </span><span class="s0">if </span><span class="s1">(input.matches(</span><span class="s6">&quot;.*</span><span class="s0">\\</span><span class="s6">s+.*&quot;</span><span class="s1">)){ </span><span class="s4">//checks for white space</span><span class="s1"> 
+            valid = </span><span class="s0">false;</span><span class="s1"> 
+        } 
+        </span><span class="s0">if </span><span class="s1">(input.length() == </span><span class="s5">0</span><span class="s1">){ </span><span class="s4">//checks input isnt empty</span><span class="s1"> 
+            valid = </span><span class="s0">false;</span><span class="s1"> 
+        } 
+ 
+        </span><span class="s0">for </span><span class="s1">(BigInteger temp: nums) { </span><span class="s4">//checks that input is in the correct base</span><span class="s1"> 
+            </span><span class="s0">if </span><span class="s1">(temp.compareTo(baseIn)== </span><span class="s5">1</span><span class="s1">) { 
+                valid = </span><span class="s0">false;</span><span class="s1"> 
+            } 
+        } 
+        </span><span class="s0">return </span><span class="s1">valid</span><span class="s0">;</span><span class="s1"> 
+    } 
  
     </span><span class="s0">public static void </span><span class="s1">main(String[] args) { 
-        System.out.println(convert(</span><span class="s3">&quot;1394&quot;</span><span class="s0">, </span><span class="s4">10 </span><span class="s0">, </span><span class="s4">2</span><span class="s1">))</span><span class="s0">;</span><span class="s1"> 
+        System.out.println(convert(</span><span class="s6">&quot;A&quot;</span><span class="s0">, </span><span class="s5">36</span><span class="s0">, </span><span class="s5">2</span><span class="s1">))</span><span class="s0">;</span><span class="s1"> 
     } 
  
 } 
- 
- 
- </span><span class="s5">/*  int sum = 0; 
-        int tempPow = -1; 
-        ArrayList&lt;Integer&gt; powers = new ArrayList&lt;Integer&gt;(); 
- 
-        for (int i = 0; i &lt; nums.size(); i++) { 
-            tempPow = (int)Math.pow(base_in, i); 
-            if (tempPow == 0){ 
-                powers.add(0); 
-            } 
-            else { 
-                powers.add(tempPow); 
-            } 
-        } 
-        for (int i = 0; i &lt; powers.size(); i++) { 
-            sum += powers.get(i); 
-        } 
- 
-        return sum;*/</span><span class="s1"> 
 </span></pre>
 </body>
 </html>

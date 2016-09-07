@@ -1,5 +1,6 @@
 import java.math.BigInteger;
 import java.util.ArrayList;
+import java.util.Scanner;
 
 /*****************************************************************
  This class converts a number between two bases ranging from 2-36
@@ -205,7 +206,14 @@ public class NumberBase {
     }
 
     public static void main(String[] args) {
-        System.out.println(convert("A", 36, 2));
+        Scanner scan = new Scanner(System.in);
+        System.out.print("Input: ");
+        String input = scan.next();
+        System.out.print("Base In: ");
+        int base_in = scan.nextInt();
+        System.out.print("Base Out: ");
+        int base_out = scan.nextInt();
+        System.out.println("ANS: " + convert(input, base_in, base_out));
     }
 
 }
