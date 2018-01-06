@@ -2,6 +2,7 @@ import java.util.ArrayList;
 
 /**
  Created by Jake on 9/2/2016.
+ CIS 251
  */
 public class NumberBase {
 
